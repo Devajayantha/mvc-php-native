@@ -1,15 +1,17 @@
 <?php
 
-include_once("controllers/Controller.php");
-$controller = new Controller();
+    include_once("controllers/Controller.php");
 
-if (isset($_POST['Submit'])) {
-    $comment = $_POST['comment'];
-    $controller->saveNew($comment);
-    $result = $controller->newIndex();
-}else {
-    $result = $controller->newIndex();
-}
+    $controller = new Controller();
+
+    if (isset($_POST['Submit'])) {
+        $comment = $_POST['comment'];
+        $controller->save($comment);
+        $result = $controller->index();
+    } else {
+        $result = $controller->index();
+    }
+
 ?>
 
 <!doctype html>
@@ -46,7 +48,7 @@ if (isset($_POST['Submit'])) {
     <div class="container">
         <br>
         <?php?>
-        <?php if (!empty($result["notifMessage"])) :?>
+        <?php if (!empty($result["notifMessage"])):?>
         <div class="alert alert-danger" role="alert">
             <?php echo $result["notifMessage"]; ?>
         </div>
@@ -63,18 +65,20 @@ if (isset($_POST['Submit'])) {
 
             </form>
         </div>
-        <div class="show-data">
-            <?php foreach ($result{"showData"} as $item) { ?>
-                <div class="box">
-                    <div class="text-title">
-                        <?php echo $item['comment'] ?>
+        <?php if (!empty($result["showData"])):?>
+            <div class="show-data">
+                <?php foreach ($result["showData"] as $item): ?>
+                    <div class="box">
+                        <div class="text-title">
+                            <?php echo $item['comment'] ?>
+                        </div>
+                        <div class="date">
+                            <?php echo date('d-m-Y H:i', strtotime($item['created_at'])) ?>
+                        </div>
                     </div>
-                    <div class="date">
-                        <?php echo date('d-m-Y H:i', strtotime($item['created_at'])) ?>
-                    </div>
-                </div>
-            <?php } ?>
-        </div>
+                <?php endforeach ?>
+            </div>
+        <?php endif ?>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
