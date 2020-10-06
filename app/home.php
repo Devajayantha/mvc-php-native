@@ -40,6 +40,10 @@
             margin-bottom: 20px;
             padding-top: 15px;
         }
+        
+        .custom-button {
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -48,7 +52,7 @@
     <div class="container">
         <br>
         <?php?>
-        <?php if (!empty($result["notifMessage"])):?>
+        <?php if (!empty($result["notifMessage"])): ?>
         <div class="alert alert-danger" role="alert">
             <?php echo $result["notifMessage"]; ?>
         </div>
@@ -59,25 +63,24 @@
                 <div class="form-group">
                     <textarea name="comment" cols="30" rows="7" placeholder="input your comment" class="form-control"></textarea>
                 </div>
-                <div class="form-group">
-                    <button type="submit" name="Submit" class="btn btn-primary">Submit</button><br>
+                <div class="form-group custom-button">
+                    <button type="submit" name="Submit" class="btn btn-primary btn-lg">Submit</button><br>
                 </div>
-
             </form>
         </div>
-        <?php if (!empty($result["showData"])):?>
-            <div class="show-data">
-                <?php foreach ($result["showData"] as $item): ?>
-                    <div class="box">
-                        <div class="text-title">
-                            <?php echo $item['comment'] ?>
-                        </div>
-                        <div class="date">
-                            <?php echo date('d-m-Y H:i', strtotime($item['created_at'])) ?>
-                        </div>
+        <?php if (!empty($result["showData"])): ?>
+        <div class="show-data">
+            <?php foreach ($result["showData"] as $item): ?>
+                <div class="box">
+                    <div class="text-title">
+                        <?php echo $item['comment'] ?>
                     </div>
-                <?php endforeach ?>
-            </div>
+                    <div class="date">
+                        <?php echo date('d-m-Y H:i', strtotime($item['created_at'])) ?>
+                    </div>
+                </div>
+            <?php endforeach ?>
+        </div>
         <?php endif ?>
     </div>
 

@@ -3,11 +3,11 @@
     include_once("lib/Model.php");
     include_once("models/Comment.php");
 
-
-    class Controller {
+    class Controller 
+    {
         public $model;
         public $comment;
-        public $vars  = "";
+        public $vars    = "";
         public $setData = [];
 
         public function __construct()
@@ -23,16 +23,11 @@
             ];
 
             $this->setData = $data;
-            // var_dump($this->setData);
-            // extract($this->setData);
-            // var_dump($this->setData);
-
             return $this->setData;
         }
 
         public function save($comment)
         {
-            
             if (strlen($comment) >= 10 && strlen($comment) <= 200) {
                 $this->comment->saveData($comment);
             } elseif (empty($comment)) {
