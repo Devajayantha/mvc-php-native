@@ -25,12 +25,13 @@ $result = $controller->index();
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Challenge</title>
+    <title>Challenge Level 1</title>
     <style>
     .box {
         font-size: 18px;
         height: 120px;
         padding: 20px;
+        margin-bottom: 5px;
         border-top: 1px solid black;
     }
 

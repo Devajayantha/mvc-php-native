@@ -24,7 +24,6 @@
             $db = "mysql:host={$this->host};dbname={$this->name}";
             if (!isset(self::$instance)) 
             {
-                $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
                 self::$instance = new PDO($db, $this->user, $this->pass);
             }
 

@@ -3,9 +3,9 @@
     
     class Comment extends Model
     {
-        protected $tableName="tb_comment";
+        protected $tableName    = "tb_comment";
 
-        protected $fillable=['comment','created_at'];
+        protected $fillable     = ['comment','created_at'];
     }
 
 
