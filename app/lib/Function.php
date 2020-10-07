@@ -8,5 +8,15 @@
         return $date;
     }
 
+    function notif_validation($comment)
+    {
+        if(empty($comment)) {
+            $value = "Must be filled in";
+        } else {
+            $value = "Your message must be 10 to 200 characters long";
+        }
+
+        return $value;
+    }
 
 ?>

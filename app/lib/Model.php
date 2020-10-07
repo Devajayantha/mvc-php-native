@@ -7,6 +7,7 @@
     {
         private $database;
         protected $tableName;
+        protected $fillable = [];
 
         public function __construct()
         {
@@ -15,14 +16,14 @@
         }
 
         public function showData()
-        {
-            $query = $this->database->getAll($this->tableName);
+        {   
+            $query = $this->database->getAll($this->tableName, $this->fillable);
             return $query;
         }
 
         public function saveData($comment)
         {
-            $query = $this->database->saveAll($comment, $this->tableName);
+            $query = $this->database->saveAll($comment, $this->tableName, $this->fillable);
             return $query;
         }
     }

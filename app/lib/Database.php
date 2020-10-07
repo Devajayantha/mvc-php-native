@@ -31,20 +31,18 @@
             return self::$instance;
         }   
 
-        public function getAll($tableName)
+        public function getAll($tableName, $fillable)
         {
-            $sql     = "SELECT * FROM {$tableName} ORDER BY id DESC";
+            $sql     = "SELECT {$fillable[0]}, {$fillable[1]}  FROM {$tableName} ORDER BY id DESC";
             $request = $this->getInstance()->query($sql);
 
             return $request;
         }
 
-        public function saveAll($comment, $tableName)
+        public function saveAll($comment, $tableName, $fillable)
         {
             $date = save_format_date();
-            // date_default_timezone_set("Asia/Bangkok");
-            // $date    = date('Y-m-d H:i:s');
-            $sql     = "INSERT INTO {$tableName} (comment,created_at) VALUES ('".$comment."','".$date."')";
+            $sql     = "INSERT INTO {$tableName} ({$fillable[0]}, {$fillable[1]}) VALUES ('".$comment."','".$date."')";
             $request = $this->getInstance()->query($sql);
             
             return $request;
