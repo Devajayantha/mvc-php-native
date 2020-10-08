@@ -1,7 +1,7 @@
 <?php
 
     include_once("lib/Database.php");
-    include_once("models/Comment.php");
+    // include_once("models/Comment.php");
 
     class Model 
     {

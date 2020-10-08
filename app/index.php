@@ -10,7 +10,6 @@ if (isset($_POST['Submit'])) {
 
 $result = $controller->index();
 
-
 ?>
 
 <!doctype html>
